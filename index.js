@@ -8,50 +8,8 @@ var domain   = expert.Domain(),
     concepts = {},
     relations = {};
 
-// Knowledge Bases
-var questionOrder = [{
-  about: "purpose",
-  question: "Apa tujuan Anda dalam melakukan travelling ?",
-  options: [
-          "business",
-          "travelling",
-          "honeymoon",
-          "shopping",
-          "surfing",
-          "studying"]
-}, {
-  about: "budget",
-  question: "Berapa budget yang Anda sediakan untuk perjalanan ini ?",
-  options: [
-          "tinggi",
-          "sedang",
-          "rendah"]
-}, {
-  about: "continent",
-  question: "Benua manakah yang ingin Anda kunjungi ?",
-  options: [
-          "east asia",
-          "north america",
-          "south america",
-          "east europe",
-          "west europe"]
-}, {
-  about: "popularity",
-  question: "Seberapa populer tujuan travel Anda yang Anda harapkan ?",
-  options: [
-          "sangat populer",
-          "cukup populer",
-          "tidak populer"]
-}, {
-  about: "season",
-  question: "Musim apakah yang Anda inginkan pada saat melakukan travelling ?",
-  options: [
-          "spring",
-          "summer",
-          "autumn",
-          "winter"]
-}];
-questionOrder.forEach(function(order){
+var destinations = require('./destinations.js');
+destinations.questions.forEach(function(order){
   order.options.forEach(function(option){
     concepts[order.about] = concepts[order.about] || {};
     concepts[order.about][option] = Concept.create({id: order.about + '-' + option})
@@ -59,10 +17,7 @@ questionOrder.forEach(function(order){
 
   relations[order.about] = Relation.create({id: '~' + order.about, inverseFor: Relation.create({id: order.about})})
 });
-
-// Knowledge Bases
-var destinations = require('./destinations.js');
-destinations.forEach(function(destination){
+destinations.data.forEach(function(destination){
   concepts['destinations'] = concepts['destinations'] || {};
   concepts['destinations'][destination.destination] = Concept.create({id: destination.destination});
 
@@ -72,40 +27,132 @@ destinations.forEach(function(destination){
     .season(concepts['season'][destination.season])
     .budget(concepts['budget'][destination.budget])
     .continent(concepts['continent'][destination.continent])
-})
+});
 
-var currentQuestionIndex = 0,
-    currentAnswers = [],
-    showQuestion = function(currentQuestionIndex){
-      lib.askQuestion(questionOrder[currentQuestionIndex].question, {
-        name: questionOrder[currentQuestionIndex].about,
-        values: questionOrder[currentQuestionIndex].options
+var accomodations = require('./accomodations.js');
+accomodations.questions.forEach(function(order){
+  order.options.forEach(function(option){
+    concepts[order.about] = concepts[order.about] || {};
+    concepts[order.about][option] = Concept.create({id: order.about + '-' + option})
+  })
+
+  if (order.multi) {
+    order.options.forEach(function(option){
+      relations[order.about + option] = Relation.create({id: '~' + order.about + option, inverseFor: Relation.create({id: order.about + option})})
+    })
+  } else {
+    relations[order.about] = Relation.create({id: '~' + order.about, inverseFor: Relation.create({id: order.about})})
+  }
+});
+accomodations.data.forEach(function(accomodation){
+  concepts['accomodations'] = concepts['accomodations'] || {};
+  concepts['accomodations'][accomodation.accomodation] = Concept.create({id: accomodation.accomodation});
+
+  concepts['accomodations'][accomodation.accomodation]
+    .destination(concepts['destination'][accomodation.destination])
+    .stars(concepts['stars'][accomodation.stars])
+    .food(concepts['food'][accomodation.food])
+
+  accomodation.facility.forEach(function(f){
+    concepts['accomodations'][accomodation.accomodation]['facility' + f](concepts['facility'][f])
+  })
+});
+
+var currentDestinationQuestionIndex = 0,
+    currentDestinationAnswers = [],
+    showDestinationQuestion = function(currentDestinationQuestionIndex){
+      while (destinations.questions[currentDestinationQuestionIndex].skip) currentDestinationQuestionIndex++;
+
+      lib.askDestinationQuestion(destinations.questions[currentDestinationQuestionIndex].question, {
+        name: destinations.questions[currentDestinationQuestionIndex].about,
+        values: destinations.questions[currentDestinationQuestionIndex].options
       }, function(answer){
-        var about = questionOrder[currentQuestionIndex].about;
+        var about = destinations.questions[currentDestinationQuestionIndex].about;
 
-        currentAnswers.push({
+        currentDestinationAnswers.push({
           about: about,
           answer: answer
         })
 
-        var results = _.intersection.apply(this, currentAnswers.map(function(currentAnswer){
+        var results = _.intersection.apply(this, currentDestinationAnswers.map(function(currentAnswer){
           return relations[currentAnswer.about](concepts[currentAnswer.about][currentAnswer.answer])
         }))
 
-        if (currentQuestionIndex == questionOrder.length - 1) {
+        if (currentDestinationQuestionIndex == destinations.questions.length - 1) {
           if (results.length > 0) {
-            lib.showAnswer("Tujuan destinasi terbaik adalah", _.map(results, function(c){ return c.id; })[0])
+            lib.showDestinationAnswer("Tujuan destinasi terbaik adalah", _.map(results, function(c){ return c.id; })[0])
+            currentAccomodationAnswers.push({
+              about: 'destination',
+              answer: _.map(results, function(c){ return c.id; })[0]
+            })
+
+            showAccomodationQuestion(currentAccomodationQuestionIndex)
           } else {
-            lib.showError("Error", "Destinasi Tidak Ditemukan")
+            lib.showDestinationError("Error", "Destinasi Tidak Ditemukan")
           }
         } else {
           if (results.length > 0) {
-            showQuestion(++currentQuestionIndex)
+            showDestinationQuestion(++currentDestinationQuestionIndex)
           } else {
-            lib.showError("Error", "Destinasi Tidak Ditemukan")
+            lib.showDestinationError("Error", "Destinasi Tidak Ditemukan")
+          }
+        }
+      })
+    },
+    currentAccomodationQuestionIndex = 0,
+    currentAccomodationAnswers = [],
+    showAccomodationQuestion = function(currentAccomodationQuestionIndex){
+      while (accomodations.questions[currentAccomodationQuestionIndex].skip) currentAccomodationQuestionIndex++;
+
+      lib.askAccomodationQuestion(accomodations.questions[currentAccomodationQuestionIndex].question, {
+        name: accomodations.questions[currentAccomodationQuestionIndex].about,
+        values: accomodations.questions[currentAccomodationQuestionIndex].options,
+        multi: accomodations.questions[currentAccomodationQuestionIndex].multi
+      }, function(answer){
+        window.d = answer
+        console.log('answer', answer, typeof answer)
+        var about = accomodations.questions[currentAccomodationQuestionIndex].about,
+            multi = accomodations.questions[currentAccomodationQuestionIndex].multi;
+
+        if (multi) {
+          answer.forEach(function(a){
+            currentAccomodationAnswers.push({
+              multi: multi,
+              about: about,
+              answer: a
+            })
+          })
+        } else {
+          currentAccomodationAnswers.push({
+            about: about,
+            answer: answer
+          })
+        }
+
+        console.log('currentAccomodationAnswers', currentAccomodationAnswers)
+
+        var results = _.intersection.apply(this, currentAccomodationAnswers.map(function(currentAnswer){
+          if (currentAnswer.multi) {
+            return relations[currentAnswer.about + currentAnswer.answer](concepts[currentAnswer.about][currentAnswer.answer])
+          } else {
+            return relations[currentAnswer.about](concepts[currentAnswer.about][currentAnswer.answer])
+          }
+        }))
+
+        if (currentAccomodationQuestionIndex == accomodations.questions.length - 1) {
+          if (results.length > 0) {
+            lib.showAccomodationAnswer("Akomodasi terbaik adalah", _.map(results, function(c){ return c.id; })[0])
+          } else {
+            lib.showAccomodationError("Error", "Destinasi Tidak Ditemukan")
+          }
+        } else {
+          if (results.length > 0) {
+            showAccomodationQuestion(++currentAccomodationQuestionIndex)
+          } else {
+            lib.showAccomodationError("Error", "Destinasi Tidak Ditemukan")
           }
         }
       })
     }
 
-showQuestion(currentQuestionIndex);
+showDestinationQuestion(currentDestinationQuestionIndex);

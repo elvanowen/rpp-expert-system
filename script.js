@@ -2,11 +2,12 @@ $ = require("./lib/jquery.min.js")
 
 module.exports = {};
 
-module.exports.render = function($el){
-  $('#app').empty().append($el)
+// Destination
+module.exports.renderDestination = function($el){
+  $('#app-destination').empty().append($el)
 }
 
-module.exports.askQuestion = function(question, option, callback){
+module.exports.askDestinationQuestion = function(question, option, callback){
   var $options = [];
 
   option.values.forEach(function(o){
@@ -16,7 +17,7 @@ module.exports.askQuestion = function(question, option, callback){
     ')
   })
 
-  var $form = $('<form id="form"> \
+  var $form = $('<form id="form-destination"> \
                     <fieldset> \
                     <legend>' + question + '</legend> \
                     ' + $options.join('\n') + ' \
@@ -24,10 +25,10 @@ module.exports.askQuestion = function(question, option, callback){
                     </fieldset> \
                 </form>');
 
-  module.exports.render($form)
-  $('#form').submit(function(e){
+  module.exports.renderDestination($form)
+  $('#form-destination').submit(function(e){
     e.preventDefault();
-    var chosen = $('input[name=' + option.name + ']:checked').val();
+    var chosen = $('#form-destination input[name=' + option.name + ']:checked').val();
     console.log(chosen)
 
     callback(chosen)
@@ -35,24 +36,87 @@ module.exports.askQuestion = function(question, option, callback){
   })
 }
 
-module.exports.showAnswer = function(description, answer){
-  var $form = $('<form id="form"> \
+module.exports.showDestinationAnswer = function(description, answer){
+  var $form = $('<form id="form-destination"> \
                     <fieldset> \
                       <legend>' + description + '</legend> \
                       <b class="cap">' + answer + '</b> \
                     </fieldset> \
                 </form>');
 
-  module.exports.render($form)
+  module.exports.renderDestination($form)
 }
 
-module.exports.showError = function(description, error){
-  var $form = $('<form id="form"> \
+module.exports.showDestinationError = function(description, error){
+  var $form = $('<form id="form-destination"> \
                     <fieldset> \
                       <legend>' + description + '</legend> \
                       <b>' + error + '</b> \
                     </fieldset> \
                 </form>');
 
-  module.exports.render($form)
+  module.exports.renderDestination($form)
+}
+
+// Accomodation
+module.exports.renderAccomodation = function($el){
+  $('#app-accomodation').empty().append($el)
+}
+
+module.exports.askAccomodationQuestion = function(question, option, callback){
+  var $options = [];
+
+  option.values.forEach(function(o){
+    $options.push(' \
+      <input id="' + o + '" type="' + (option.multi ? "checkbox" : "radio") + '" name="' + option.name + '" value="' + o + '"> \
+      <label class="cap" for="' + o + '">' + o + '</label> \
+    ')
+  })
+
+  var $form = $('<form id="form-accomodation"> \
+                    <fieldset> \
+                    <legend>' + question + '</legend> \
+                    ' + $options.join('\n') + ' \
+                    <input type="submit" value="Submit" /> \
+                    </fieldset> \
+                </form>');
+
+  module.exports.renderAccomodation($form)
+  $('#form-accomodation').submit(function(e){
+    e.preventDefault();
+    if (option.multi) {
+      var chosen = $('#form-accomodation input[name=' + option.name + ']:checked').map(function(){
+        return $(this).val();
+      }).get()
+    } else {
+      var chosen = $('#form-accomodation input[name=' + option.name + ']:checked').val();
+    }
+
+    console.log(chosen)
+
+    callback(chosen)
+    return false;
+  })
+}
+
+module.exports.showAccomodationAnswer = function(description, answer){
+  var $form = $('<form id="form-accomodation"> \
+                    <fieldset> \
+                      <legend>' + description + '</legend> \
+                      <b class="cap">' + answer + '</b> \
+                    </fieldset> \
+                </form>');
+
+  module.exports.renderAccomodation($form)
+}
+
+module.exports.showAccomodationError = function(description, error){
+  var $form = $('<form id="form-accomodation"> \
+                    <fieldset> \
+                      <legend>' + description + '</legend> \
+                      <b>' + error + '</b> \
+                    </fieldset> \
+                </form>');
+
+  module.exports.renderAccomodation($form)
 }
