@@ -129,7 +129,7 @@ var currentDestinationQuestionIndex = 0,
           })
         }
 
-        console.log('currentAccomodationAnswers', currentAccomodationAnswers)
+        // console.log('currentAccomodationAnswers', currentAccomodationAnswers)
 
         var results = _.intersection.apply(this, currentAccomodationAnswers.map(function(currentAnswer){
           if (currentAnswer.multi) {
@@ -143,13 +143,13 @@ var currentDestinationQuestionIndex = 0,
           if (results.length > 0) {
             lib.showAccomodationAnswer("Akomodasi terbaik adalah", _.map(results, function(c){ return c.id; })[0])
           } else {
-            lib.showAccomodationError("Error", "Destinasi Tidak Ditemukan")
+            lib.showAccomodationError("Error", "Akomodasi Tidak Ditemukan")
           }
         } else {
           if (results.length > 0) {
             showAccomodationQuestion(++currentAccomodationQuestionIndex)
           } else {
-            lib.showAccomodationError("Error", "Destinasi Tidak Ditemukan")
+            lib.showAccomodationError("Error", "Akomodasi Tidak Ditemukan")
           }
         }
       })
