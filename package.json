@@ -1,0 +1,16 @@
+{
+  "name": "rpp-travelling-expert-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "uglify-js": "^2.7.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "browserify index.js | uglifyjs > bundle.js",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
