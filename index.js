@@ -60,62 +60,19 @@ questionOrder.forEach(function(order){
   relations[order.about] = Relation.create({id: '~' + order.about, inverseFor: Relation.create({id: order.about})})
 });
 
-var destinations =  [ "new york",
-                      "paris",
-                      "berlin",
-                      "london",
-                      "gold coast australia",
-                      "bali",
-                      "lombok",
-                      "singapore"];
-
-// Create attributes concepts
+// Knowledge Bases
+var destinations = require('./destinations.js');
 destinations.forEach(function(destination){
   concepts['destinations'] = concepts['destinations'] || {};
-  concepts['destinations'][destination] = Concept.create({id: destination})
+  concepts['destinations'][destination.destination] = Concept.create({id: destination.destination});
+
+  concepts['destinations'][destination.destination]
+    .popularity(concepts['popularity'][destination.popularity])
+    .purpose(concepts['purpose'][destination.purpose])
+    .season(concepts['season'][destination.season])
+    .budget(concepts['budget'][destination.budget])
+    .continent(concepts['continent'][destination.continent])
 })
-
-concepts['destinations']['new york']
-  .popularity(concepts['popularity']['sangat populer'])
-  .purpose(concepts['purpose']['travelling'])
-  .season(concepts['season']['spring'])
-  .budget(concepts['budget']['tinggi'])
-  .continent(concepts['continent']['north america'])
-
-concepts['destinations']['paris']
-  .popularity(concepts['popularity']['cukup populer'])
-  .purpose(concepts['purpose']['travelling'])
-  .season(concepts['season']['spring'])
-  .budget(concepts['budget']['sedang'])
-  .continent(concepts['continent']['west europe'])
-
-concepts['destinations']['singapore']
-  .popularity(concepts['popularity']['cukup populer'])
-  .purpose(concepts['purpose']['studying'])
-  .season(concepts['season']['spring'])
-  .budget(concepts['budget']['sedang'])
-  .continent(concepts['continent']['east asia'])
-
-concepts['destinations']['london']
-  .popularity(concepts['popularity']['sangat populer'])
-  .purpose(concepts['purpose']['shopping'])
-  .season(concepts['season']['winter'])
-  .budget(concepts['budget']['tinggi'])
-  .continent(concepts['continent']['west europe'])
-
-concepts['destinations']['gold coast australia']
-  .popularity(concepts['popularity']['cukup populer'])
-  .purpose(concepts['purpose']['surfing'])
-  .season(concepts['season']['summer'])
-  .budget(concepts['budget']['sedang'])
-  .continent(concepts['continent']['east asia'])
-
-concepts['destinations']['bali']
-  .popularity(concepts['popularity']['cukup populer'])
-  .purpose(concepts['purpose']['surfing'])
-  .season(concepts['season']['summer'])
-  .budget(concepts['budget']['rendah'])
-  .continent(concepts['continent']['east asia'])
 
 var currentQuestionIndex = 0,
     currentAnswers = [],
