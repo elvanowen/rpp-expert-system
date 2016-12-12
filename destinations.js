@@ -93,7 +93,7 @@ module.exports.data = [{
   season: 'summer',
   budget: 'rendah',
   continent: 'southeast asia'
-},{
+}, {
   destination: 'siam paragon thailand',
   popularity: 'sangat populer',
   purpose: 'shopping',
@@ -221,9 +221,9 @@ module.exports.data = [{
   continent: 'west europe'
 }, {
   destination: 'paris',
-  popularity: 'cukup populer',
+  popularity: 'sangat populer',
   purpose: 'shopping',
-  season: 'autumn',
+  season: 'summer',
   budget: 'tinggi',
   continent: 'west europe'
 }, {
@@ -241,7 +241,7 @@ module.exports.data = [{
   budget: 'sedang',
   continent: 'west europe'
 }, {
-  destination: 'berlin departmentstore',
+  destination: 'berlin',
   popularity: 'sangat populer',
   purpose: 'shopping',
   season: 'summer',
@@ -863,7 +863,581 @@ module.exports.data = [{
   season: 'summer',
   budget: 'rendah',
   continent: 'north america'
-},{
+}, {
+  destination: 'siam paragon thailand',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'southeast asia'
+}, {
+  destination: 'central market malaysia',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'southeast asia'
+}, {
+  destination: 'kuta square bali',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'rendah',
+  continent: 'southeast asia'
+}, {
+  destination: 'megamall filipina',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'southeast asia'
+}, {
+  destination: 'grand indonesia jakarta',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'southeast asia'
+}, {
+  destination: 'cho hom vietnam',
+  popularity: 'tidak populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'southeast asia'
+}, {
+  destination: 'thalat kuan din laos',
+  popularity: 'tidak populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'southeast asia'
+}, {
+  destination: 'houston',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'tinggi',
+  continent: 'north america'
+}, {
+  destination: 'honolulu',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'north america'
+}, {
+  destination: 'new york',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'north america'
+}, {
+  destination: 'los angeles',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'north america'
+}, {
+  destination: 'chicago',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'north america'
+},  {
+  destination: 'san francisco',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'north america'
+}, {
+  destination: 'boston',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'tinggi',
+  continent: 'north america'
+}, {
+  destination: 'milan',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'west europe'
+}, {
+  destination: 'milan',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'west europe'
+}, {
+  destination: 'paris',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'tinggi',
+  continent: 'west europe'
+}, {
+  destination: 'milan',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'west europe'
+}, {
+  destination: 'paris',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'west europe'
+}, {
+  destination: 'istanbul',
+  popularity: 'tidak populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'west europe'
+}, {
+  destination: 'vienna',
+  popularity: 'tidak populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'west europe'
+}, {
+  destination: 'berlin',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'west europe'
+}, {
+  destination: 'moscow',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'moscow',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'moscow',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'winter',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'moscow',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'istanbul',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'istanbul',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'istanbul',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'winter',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'istanbul',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'athens',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'athens',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'athens',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'athens',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'winter',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'prague',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'winter',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'prague',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'prague',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'prague',
+  popularity: 'cukup populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'bucharest',
+  popularity: 'tidak populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'bucharest',
+  popularity: 'tidak populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'bucharest',
+  popularity: 'tidak populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'bucharest',
+  popularity: 'tidak populer',
+  purpose: 'travelling',
+  season: 'winter',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'ecuador',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'winter',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'ecuador',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'ecuador',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'autumnn',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'ecuador',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'sao paolo',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'south america'
+}, {
+  destination: 'sao paolo',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'south america'
+}, {
+  destination: 'sao paolo',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'winter',
+  budget: 'sedang',
+  continent: 'south america'
+}, {
+  destination: 'sao paolo',
+  popularity: 'sangat populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'south america'
+}, {
+  destination: 'chile',
+  popularity: 'kurang populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'chile',
+  popularity: 'kurang populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'chile',
+  popularity: 'kurang populer',
+  purpose: 'travelling',
+  season: 'winter',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'chile',
+  popularity: 'kurang populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'bolivia',
+  popularity: 'kurang populer',
+  purpose: 'travelling',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'south america'
+}, {
+  destination: 'bolivia',
+  popularity: 'kurang populer',
+  purpose: 'travelling',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'south america'
+}, {
+  destination: 'bolivia',
+  popularity: 'kurang populer',
+  purpose: 'travelling',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'south america'
+}, {
+  destination: 'bolivia',
+  popularity: 'kurang populer',
+  purpose: 'travelling',
+  season: 'winter',
+  budget: 'sedang',
+  continent: 'south america'
+}, {
+  destination: 'berlin',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'west europe'
+}, {
+  destination: 'moscow',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'spring',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'moscow',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'moscow',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'winter',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'moscow',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'autumn',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'istanbul',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'istanbul',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'istanbul',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'winter',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'istanbul',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'athens',
+  popularity: 'cukup populer',
+  purpose: 'business',
+  season: 'autumn',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'athens',
+  popularity: 'cukup populer',
+  purpose: 'business',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'athens',
+  popularity: 'cukup populer',
+  purpose: 'business',
+  season: 'spring',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'athens',
+  popularity: 'cukup populer',
+  purpose: 'business',
+  season: 'winter',
+  budget: 'tinggi',
+  continent: 'east europe'
+}, {
+  destination: 'prague',
+  popularity: 'cukup populer',
+  purpose: 'business',
+  season: 'winter',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'prague',
+  popularity: 'cukup populer',
+  purpose: 'business',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'prague',
+  popularity: 'cukup populer',
+  purpose: 'business',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'prague',
+  popularity: 'cukup populer',
+  purpose: 'business',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'bucharest',
+  popularity: 'tidak populer',
+  purpose: 'business',
+  season: 'autumn',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'bucharest',
+  popularity: 'tidak populer',
+  purpose: 'business',
+  season: 'summer',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'bucharest',
+  popularity: 'tidak populer',
+  purpose: 'business',
+  season: 'spring',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'bucharest',
+  popularity: 'tidak populer',
+  purpose: 'business',
+  season: 'winter',
+  budget: 'sedang',
+  continent: 'east europe'
+}, {
+  destination: 'ecuador',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'winter',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'ecuador',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'summer',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
+  destination: 'ecuador',
+  popularity: 'sangat populer',
+  purpose: 'business',
+  season: 'autumnn',
+  budget: 'tinggi',
+  continent: 'south america'
+}, {
   destination: 'harrods london',
   popularity: 'sangat populer',
   purpose: 'shopping',
