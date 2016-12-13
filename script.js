@@ -29,7 +29,6 @@ module.exports.askDestinationQuestion = function(question, option, callback){
   $('#form-destination').submit(function(e){
     e.preventDefault();
     var chosen = $('#form-destination input[name=' + option.name + ']:checked').val();
-    console.log(chosen)
 
     callback(chosen)
     return false;
@@ -91,8 +90,6 @@ module.exports.askAccomodationQuestion = function(question, option, callback){
     } else {
       var chosen = $('#form-accomodation input[name=' + option.name + ']:checked').val();
     }
-
-    console.log(chosen)
 
     callback(chosen)
     return false;

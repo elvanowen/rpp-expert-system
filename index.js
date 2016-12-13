@@ -110,7 +110,6 @@ var currentDestinationQuestionIndex = 0,
         multi: accomodations.questions[currentAccomodationQuestionIndex].multi
       }, function(answer){
         window.d = answer
-        console.log('answer', answer, typeof answer)
         var about = accomodations.questions[currentAccomodationQuestionIndex].about,
             multi = accomodations.questions[currentAccomodationQuestionIndex].multi;
 
@@ -128,8 +127,6 @@ var currentDestinationQuestionIndex = 0,
             answer: answer
           })
         }
-
-        // console.log('currentAccomodationAnswers', currentAccomodationAnswers)
 
         var results = _.intersection.apply(this, currentAccomodationAnswers.map(function(currentAnswer){
           if (currentAnswer.multi) {

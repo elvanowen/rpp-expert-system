@@ -21,7 +21,6 @@ module.exports.questions = [{
   about: "continent",
   question: "Benua manakah yang ingin Anda kunjungi ?",
   options: [
-          "east asia",
           "southeast asia",
           "north america",
           "south america",
@@ -33,6 +32,7 @@ module.exports.questions = [{
   options: [
           "sangat populer",
           "cukup populer",
+          "kurang populer",
           "tidak populer"]
 }, {
   about: "season",
@@ -156,7 +156,8 @@ module.exports.data = [{
   season: 'spring',
   budget: 'sedang',
   continent: 'north america'
-}, {
+}
+, {
   destination: 'new york',
   popularity: 'sangat populer',
   purpose: 'shopping',
@@ -226,7 +227,8 @@ module.exports.data = [{
   season: 'summer',
   budget: 'tinggi',
   continent: 'west europe'
-}, {
+}
+, {
   destination: 'istanbul',
   popularity: 'tidak populer',
   purpose: 'shopping',
@@ -338,7 +340,8 @@ module.exports.data = [{
   season: 'winter',
   budget: 'sedang',
   continent: 'east europe'
-}, {
+}
+, {
   destination: 'prague',
   popularity: 'cukup populer',
   purpose: 'shopping',
@@ -359,7 +362,8 @@ module.exports.data = [{
   season: 'autumn',
   budget: 'sedang',
   continent: 'east europe'
-}, {
+}
+, {
   destination: 'bucharest',
   popularity: 'tidak populer',
   purpose: 'shopping',
@@ -373,7 +377,8 @@ module.exports.data = [{
   season: 'summer',
   budget: 'sedang',
   continent: 'east europe'
-}, {
+}
+, {
   destination: 'bucharest',
   popularity: 'tidak populer',
   purpose: 'shopping',
@@ -401,21 +406,24 @@ module.exports.data = [{
   season: 'summer',
   budget: 'tinggi',
   continent: 'south america'
-}, {
+}
+, {
   destination: 'ecuador',
   popularity: 'sangat populer',
   purpose: 'shopping',
-  season: 'autumnn',
+  season: 'autumn',
   budget: 'tinggi',
   continent: 'south america'
-}, {
+}
+, {
   destination: 'ecuador',
   popularity: 'sangat populer',
   purpose: 'shopping',
   season: 'spring',
   budget: 'tinggi',
   continent: 'south america'
-}, {
+}
+, {
   destination: 'sao paolo',
   popularity: 'sangat populer',
   purpose: 'shopping',
@@ -436,21 +444,24 @@ module.exports.data = [{
   season: 'winter',
   budget: 'sedang',
   continent: 'south america'
-}, {
+}
+, {
   destination: 'sao paolo',
   popularity: 'sangat populer',
   purpose: 'shopping',
   season: 'autumn',
   budget: 'sedang',
   continent: 'south america'
-}, {
+}
+, {
   destination: 'chile',
   popularity: 'kurang populer',
   purpose: 'shopping',
   season: 'autumn',
   budget: 'tinggi',
   continent: 'south america'
-}, {
+}
+, {
   destination: 'chile',
   popularity: 'kurang populer',
   purpose: 'shopping',
@@ -1175,7 +1186,7 @@ module.exports.data = [{
   destination: 'ecuador',
   popularity: 'sangat populer',
   purpose: 'travelling',
-  season: 'autumnn',
+  season: 'autumn',
   budget: 'tinggi',
   continent: 'south america'
 }, {
@@ -1434,7 +1445,7 @@ module.exports.data = [{
   destination: 'ecuador',
   popularity: 'sangat populer',
   purpose: 'business',
-  season: 'autumnn',
+  season: 'autumn',
   budget: 'tinggi',
   continent: 'south america'
 }, {
@@ -1444,4 +1455,5 @@ module.exports.data = [{
   season: 'spring',
   budget: 'tinggi',
   continent: 'west europe'
-}]
+}
+]

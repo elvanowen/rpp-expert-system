@@ -50,7 +50,8 @@ module.exports.data = [{
   stars: '5',
   facility: ['ac', 'wifi', 'balcon', 'lcdTv'],
   food: 'prasmanan'
-}, {
+}
+, {
   accomodation: 'mandarin orchard',
   destination: 'singapore',
   stars: '5',
@@ -98,21 +99,24 @@ module.exports.data = [{
   stars: '4',
   facility: ['ac', 'waterHeater', 'balcon', 'wifi'],
   food: 'porsi'
-}, {
+}
+, {
   accomodation: 'trump international hotel',
   destination: 'honolulu',
   stars: '5',
   facility: ['ac', 'waterHeater', 'lcdTv', 'balcon', 'wifi'],
   food: 'prasmanan'
-}, {
+}
+, {
   accomodation: 'sofitel newyork',
-  destination: 'newyork',
+  destination: 'new york',
   stars: '5',
   facility: ['ac', 'waterHeater', 'lcdTv', 'balcon', 'wifi'],
   food: 'prasmanan'
-}, {
+}
+, {
   accomodation: 'newyork hilton',
-  destination: 'newyork',
+  destination: 'new york',
   stars: '4',
   facility: ['ac', 'waterHeater', 'lcdTv', 'balcon', 'wifi'],
   food: 'prasmanan'
@@ -146,7 +150,8 @@ module.exports.data = [{
   stars: '5',
   facility: ['ac', 'lcdTv', 'waterHeater', 'balcon'],
   food: 'prasmanan'
-}, {
+}
+, {
   accomodation: 'the talbott',
   destination: 'chicago',
   stars: '4',
@@ -392,4 +397,5 @@ module.exports.data = [{
   stars: '4',
   facility: ['ac', 'wifi', 'waterHeater'],
   food: 'prasmanan'
-}]
+}
+]
